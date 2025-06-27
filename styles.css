@@ -1,0 +1,114 @@
+/* Global Page Styles */
+body {
+    margin: 0; /*Removes default spacing around the page edges */
+    font-family: Arial, sans-serif; /* Sets a readable font */
+    background-color: #f8f8f8; /* Sets a light gray background */
+    color: #333; /* Sets a dark gray text */
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    background-color: #333; /* Sets the background of the navigation bar */
+    padding: 1em; /* Adds spacing inside the navigation bar */
+    display: flex; /* Uses Flexbox for horizontal alignment */
+    justify-content: center; /* Centers the navigation list in the navbar */
+}
+
+.navbar ul {
+    display: flex; /* Esnures navigation items are laid out in a row */
+    list-style: none; /* Removes bullets from list */
+    gap: 1em; /* Adds space between each navigation item */
+    padding: 0;
+    margin: 0;
+}
+
+.navbar li a {
+    color: white; /* Sets the white text for the navigation bar*/
+    text-decoration: none; /* Removes underline from links */
+}
+
+.navbar li a:hover {
+    color: yellow; /* Changes text color to yellow on hover */
+}
+
+/* Header Section */
+header {
+    padding: 2em; /* Adds spacing inside the header box */
+    background-color: white; /* Sets a white background for the header */
+    margin: 2em; /* Adds spacing around the header box */
+    border: 1px solid #ccc; /* Adds a light gray border around the header */
+    border-radius: 5px; /* Rounds the corners of the header box */
+}
+
+/* Responsive layout */
+@media (min-width: 600px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Unordered List Style */
+ul {
+    padding-left: 1.2em;
+    margin-bottom: 1em;
+}
+
+/* Introductory Paragraph Styling */
+.intro {
+    font-style: italic;
+    margin-bottom: 1em;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center; /* Centers the footer text */
+    padding: 1em; /* Adds spacing inside the footer */
+    background-color: #eee; /* Sets a light gray background for the footer */
+    border-top: 1px solid #ccc; /* Adds a top border to the footer */
+    font-size: 0.9em; /* Sets a smaller font size for the footer text */
+}
+
+/* Headings Styling */
+h1, h2 {
+    color: #004080; /* Sets a dark blue color for headings */
+}
+
+h1 {
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 2px solid #004080; /* Adds a bottom border to the main heading */
+}
+
+/* Table Styling */
+table {
+    border-collapse: collapse; /* Ensures borders are collapsed into a single line */
+    width: 100%; /* Makes the table take the full width of its container */
+    margin: 1em 0; /* Adds spacing above and below the table */
+}
+
+td, th {
+    border: 1px solid #ccc; /* Adds a light gray border around table cells */
+    padding: 0.5em; /* Adds spacing inside each cell */
+    text-align: left; /* Aligns text to the left in table cells */
+}
+
+th {
+    background-color: #e9f1f8; /* Sets a light blue background for table headers */
+    font-weight: bold; /* Makes table header text bold */
+}
+
+/* Image Styling */
+.image-container {
+    text-align: center; /* Centers the imahge within its container */
+    margin: 2em 0; /* Adds spacing above and below the image container */
+}
+
+.image-container img {
+    max-width: 90%; /* Ensures the image does not exceed 90% of its container's width */
+    height: auto; /*Maintains the aspect ratio of the image */
+    border: 1px solid #ccc; /* Adds a light gray border around the image */
+    border-radius: 8px; /* Rounds the corners of the image */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow effect to the image */
+}
