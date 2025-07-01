@@ -142,3 +142,19 @@ th {
         white-space: nowrap;
     }
 }
+
+/* Horizontal Logo Row Styling */
+.logo-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em; /* Space between logos */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    margin-top: 2em;
+}
+
+.logo-row img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 8px;
+}
