@@ -106,13 +106,13 @@ th {
 }
 
 .image-container img {
-    max-width: 90%; /* Ensures the image does not exceed 90% of its container's width */
-    height: auto; /*Maintains the aspect ratio of the image */
-    border: 1px solid #ccc; /* Adds a light gray border around the image */
-    border-radius: 8px; /* Rounds the corners of the image */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow effect to the image */
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
-
 /* Responsive Navigation Bar for small screens */
 @media (max-width: 768px) {
     .navbar {
