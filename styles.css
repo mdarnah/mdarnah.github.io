@@ -116,25 +116,19 @@ th {
 /* Responsive Navigation Bar for small screens */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        align-items: center;
+        overflow-x: auto;
     }
 
     .navbar ul {
-        flex-direction: column;
-        width: 100%;
-        padding: 0;
-    }
-
-    .navbar li {
-        width: 100%;
-        text-align: center;
-        margin: 0.5em 0;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: 0.5em;
     }
 
     .navbar li a {
-        display: block;
-        width: 100%;
-        padding: 0.5em 0;
+        font-size: 0.85em;
+        padding: 0.5em;
+        white-space: nowrap;
     }
 }
