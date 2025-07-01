@@ -117,13 +117,23 @@ th {
 @media (max-width: 768px) {
     .navbar {
         overflow-x: auto;
+        overflow-y: hidden; /* Prevent vertical scrolling */
+        -webkit-overflow-scrolling: touch;
     }
 
     .navbar ul {
         flex-wrap: nowrap;
         overflow-x: auto;
+        overflow-y: hidden; /* Prevent vertical scrolling */
         justify-content: flex-start;
         gap: 0.5em;
+        margin: 0;
+        padding: 0;
+        white-space: nowrap;
+    }
+
+    .navbar li {
+        flex: 0 0 auto;
     }
 
     .navbar li a {
