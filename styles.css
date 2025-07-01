@@ -114,13 +114,27 @@ th {
 }
 
 /* Responsive Navigation Bar for small screens */
-@media (max-width: 600px) {
-    .navbar ul {
+@media (max-width: 768px) {
+    .navbar {
         flex-direction: column;
         align-items: center;
     }
 
+    .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+    }
+
     .navbar li {
+        width: 100%;
+        text-align: center;
         margin: 0.5em 0;
+    }
+
+    .navbar li a {
+        display: block;
+        width: 100%;
+        padding: 0.5em 0;
     }
 }
