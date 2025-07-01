@@ -1,10 +1,14 @@
+<!-- Sets up the HTML document with proper language and metadata for responsive data-->
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Self-Assessment Quiz</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8"> <!-- Sets the character encoding to UTF-8 to support most characters -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures mobile-friendly layout -->
+  <title>Self-Assessment Quiz</title> <!-- Sets the title of the page -->
+  <link rel="stylesheet" href="styles.css"> <!-- Links to the external CSS file for styling -->
+  
+  <!-- Styles for the quiz page-->
   <style>
+    /* Main container for the quiz content with card-style layout */
     .quiz-container {
       max-width: 700px;
       margin: 2em auto;
@@ -13,14 +17,20 @@
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
+
+    /* Adds spacing between each question block */
     .question {
       margin-bottom: 1.5em;
     }
+
+    /* Styling for the quiz results section */
     .result {
       margin-top: 2em;
       padding: 1em;
       border-top: 1px solid #ccc;
     }
+
+    /* Button styling for both submit and restart */
     button {
       padding: 0.5em 1em;
       margin-top: 1em;
@@ -29,6 +39,8 @@
   </style>
 </head>
 <body>
+
+  <!-- Navigation bar with links to different sections of the website-->
   <nav class="navbar">
     <ul id="navbar-scroll">
       <li><a href="/">Home</a></li>
@@ -40,9 +52,12 @@
     </ul>
   </nav>
 
+  <!-- Container for quiz form and results -->
   <div class="quiz-container">
     <h1>Self-Assessment Quiz</h1>
+    <!-- Form element holds all quiz questions and handles user input -->
     <form id="quizForm">
+      <!-- Multiple-choice question: only one correct answer -->
       <div class="question">
         <p>1. What role does a web server play in a client-server model?</p>
         <label><input type="radio" name="q1" value="a"> It processes business logic</label><br>
@@ -50,6 +65,7 @@
         <label><input type="radio" name="q1" value="c"> It compiles user applications</label>
       </div>
 
+      <!-- Multiple-choice question: only one correct answer -->
       <div class="question">
         <p>2. Which of the following is an example of an application server?</p>
         <label><input type="radio" name="q2" value="a"> Apache HTTP Server</label><br>
@@ -57,6 +73,7 @@
         <label><input type="radio" name="q2" value="c"> Nginx</label>
       </div>
 
+      <!-- Multiple-choice question: only one correct answer -->
       <div class="question">
         <p>3. Which platform allows JavaScript to be used for server-side development?</p>
         <label><input type="radio" name="q3" value="a"> IIS</label><br>
@@ -64,11 +81,13 @@
         <label><input type="radio" name="q3" value="c"> PHP</label>
       </div>
 
+      <!-- Fill-in-the-blank question -->
       <div class="question">
         <p>4. Fill in the blank: ________ computing allows code to be run without managing server infrastructure.</p>
         <input type="text" name="q4">
       </div>
 
+      <!-- Multiple-choice question: more than one correct answer-->
       <div class="question">
         <p>5. Select all open-source web servers:</p>
         <label><input type="checkbox" name="q5" value="apache"> Apache</label><br>
@@ -76,38 +95,48 @@
         <label><input type="checkbox" name="q5" value="iis"> Microsoft IIS</label>
       </div>
 
+      <!-- Submits the form -->
       <button type="submit">Submit Quiz</button>
     </form>
 
+    <!-- Area to display quiz results after submission -->
     <div class="result" id="result"></div>
+
+    <!-- Button to restart the quiz by clearing inputs and result output -->
     <button onclick="restartQuiz()">Restart Quiz</button>
   </div>
 
+  <!-- JavaScript handles logic for quiz submission, scoring, and feedback -->
   <script>
+    // Clears the form and result area when restart is clicked
     function restartQuiz() {
       document.getElementById("quizForm").reset();
       document.getElementById("result").innerHTML = "";
     }
 
+    // Handles the quiz submission, calculates score, and provides feedback
     document.getElementById("quizForm").addEventListener("submit", function(e) {
-      e.preventDefault();
+      e.preventDefault(); //Prevent page reload on form submission
 
       let score = 0;
       let total = 5;
       let feedback = "<h2>Results</h2>";
 
+      // Collects answers from the form
       const q1 = document.querySelector("input[name='q1']:checked");
       const q2 = document.querySelector("input[name='q2']:checked");
       const q3 = document.querySelector("input[name='q3']:checked");
       const q4 = document.querySelector("input[name='q4']").value.trim().toLowerCase();
       const q5 = Array.from(document.querySelectorAll("input[name='q5']:checked")).map(cb => cb.value);
 
+      // Checks answers against correct values and increments score
       if (q1 && q1.value === "b") score++;
       if (q2 && q2.value === "b") score++;
       if (q3 && q3.value === "b") score++;
       if (q4 === "serverless") score++;
       if (q5.includes("apache") && q5.includes("nginx") && !q5.includes("iis")) score++;
 
+      // Build feedback message with score and correct answers
       feedback += `<p>Your total score: ${score}/${total}</p>`;
       feedback += `<p>${score >= 3 ? "✅ Pass" : "❌ Fail"}</p>`;
 
@@ -119,6 +148,7 @@
       feedback += `<li>Q5: ${q5.join(", ") || "No answer"} — Correct: Apache, Nginx</li>`;
       feedback += "</ul>";
 
+      // Display the feedback in the results area
       document.getElementById("result").innerHTML = feedback;
     });
   </script>
