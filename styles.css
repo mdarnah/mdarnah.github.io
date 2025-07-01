@@ -112,3 +112,15 @@ th {
     border-radius: 8px; /* Rounds the corners of the image */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow effect to the image */
 }
+
+/* Responsive Navigation Bar for small screens */
+@media (max-width: 600px) {
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar li {
+        margin: 0.5em 0;
+    }
+}
