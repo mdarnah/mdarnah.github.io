@@ -27,7 +27,15 @@
     <!-- Main heading for the page -->
     <h1>Client-Server Architecture</h1>
     <!-- Introduction providing context about the content that will be provided on the page -->
-    <p class="intro">This page will explore the roles of web and application servers within a client-server model.</p>
+   <p class="intro">
+  The client-server architecture is a foundational model in modern computing, where client devices like browsers send requests to servers for content and services. In the context of the web, this architecture is realized through two key server types: web servers and application servers.
+</p>
+<p>
+  Web servers manage incoming HTTP requests and deliver static content like HTML pages or images directly to the client. They act as the first point of contact for users on the internet. When a request requires logic or access to a database, the web server forwards it to the application server, which performs dynamic processing such as retrieving data or generating custom content. The result is then sent back through the web server to the client.
+</p>
+<p>
+  This separation of duties allows for improved performance and scalability. The web server handles many concurrent connections and caches static content, while the application server focuses on executing business logic. In practice, some technologies blur these roles — for example, frameworks like Node.js can function as both. Still, the logical division of labor between serving content and executing logic remains central to the client-server model.
+</p>
   </header>
 
   <footer>
