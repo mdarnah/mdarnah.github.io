@@ -384,3 +384,33 @@ Adjusts padding, margins, and font sizes for better readability and interaction.
     }
 }
 
+
+/*Responsive design for medium to large screens up to 1280px*/
+
+@media (max-width: 1280px) {
+    header {
+        padding: 1.5em;
+        margin: 1.5em;
+        /* Slightly reduces spacing in the header to maintain proportion*/
+    }
+
+    .quiz-container {
+        max-width: 90%; /* Allows the quiz container to take up more space on larger screens */
+    }
+
+    .navbar li a {
+        font-size: 1em; /* Increases font size for better readability on larger screens */
+    }
+
+    .image-container img {
+        max-width: 100%; /* Ensures images are responsive and fit within their container */
+    }
+
+    .question {
+        padding: 1em; /* Ensures question blocks have enough padding for reaability */
+    }
+
+    .result {
+        font-size: 1.05em; /* Slightly increases font size for the results section on quiz page */
+    }
+}
