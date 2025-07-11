@@ -177,3 +177,48 @@ Includes a hover effect for interactivity.
 .logo-row img:hover {
     transform: scale(1.05); /* Slightly enlarges the logo on hover for interactivity */
 }
+
+/* 
+Responsive design for medium screens (between 769px and 900px) 
+This media query adjusts styles for tablets and small laptops 
+*/
+
+@media (max-width: 900px) and (min-width: 769px) {
+    
+    /* Adjust header padding to use space more efficiently */
+    header {
+        padding: 1.5em;
+        margin: 1em;
+    }
+
+    /* Reduce spacing and font size in the navigation bar for compact view */
+    .navbar ul {
+        gap: 0.75em;
+    }
+
+    .navbar li a {
+        font-size: 0.95em;
+        padding: 0.5em 0.75em;
+    }
+
+    /* Resize images for this intermediate screen size */
+    .image-container img {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    /* Scale down the quiz container slightly for better spacing */
+    .quiz-container {
+        max-width: 90%;
+        padding: 1.5em;
+    }
+
+    /* Reduce heading font sizes slightly */
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+}
