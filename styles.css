@@ -4,6 +4,23 @@ body {
     font-family: Arial, sans-serif; /* Sets a readable font */
     background-color: #f8f8f8; /* Sets a light gray background */
     color: #333; /* Sets a dark gray text */
+    animation: fadeIn 0.8s ease-in-out; /* Adds a fade-in animation to the entire page */
+}
+
+/* Keyframes for Fade-In Animation.
+This animation creates a subtle entrance effect for the page content.
+It starts with the page invisible and gradually increases opacity while sliding content upward.
+*/
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Starts with the page invisible */
+        transform: translateY(20px); /* Vertically shifts the element 20 pixels down */
+    }
+    to {
+        opacity: 1; /* Ends with the page fully visible */
+        transform: translateY(0); /* Returns the element to its original position */
+    }
 }
 
 /* Navigation Bar Styles */
@@ -222,3 +239,148 @@ This media query adjusts styles for tablets and small laptops
         font-size: 1.5em;
     }
 }
+
+/* Secondary button style on quiz page */
+.secondary-btn {
+    background-color: #666; /* Medium gray background */
+    color: white; /* White text color */
+    padding: 0.5em 1em; /* Padding for button */
+    border: none; /* No border */
+    margin-top: 1em; /* Adds spacing above the button */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.secondary-btn:hover {
+    background-color: #444; /* Darker gray on hover */
+}
+
+/* Input field styling */
+.quiz-container input[type="text"] {
+    width: 100%; /* Full width for text input */
+    padding: 0.5em; /* Adds space inside the input field */
+    margin-top: 0.5em; /* Adds spacing above the input field */
+    box-sizing: border-box; /* Ensures padding doesn't overflow the width */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners */
+}
+
+/* Quiz container with gradient background and card style */
+.quiz-container {
+    max-width: 700px; /* Sets a maximum width for the quiz container */
+    margin: 3em auto; /* Centers the quiz and adds vertical spacing */
+    padding: 2em; /* Adds padding inside the quiz container */
+    border-radius: 15px;  /* Rounds the corners of the quiz container */
+    background: linear-gradient(135deg, #ffffff, #e0f7fa); /* Adds a gradient background */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Adds a slight shadow for depth */
+    animation: fadeIn 0.8s ease-in-out; /* Adds a fade-in animation */
+}
+
+/* Question block styling */
+.question {
+    margin-bottom: 2em; 
+    padding: 1em;
+    border-radius: 10px;
+    background: #f9f9f9;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Improve label spacing and hover effect */
+.question label {
+    display: block;
+    padding: 0.3em 0;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+.question label:hover {
+    color: #007acc;
+}
+
+/* Text input field for open-ended question */
+.quiz-container input[type="text"] {
+    width: 100%;
+    padding: 0.6em;
+    margin-top: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.quiz-container input[type="text"]:focus {
+    border-color: #007acc;
+    outline: none;
+}
+
+/* Primary button (Submit) */
+.quiz-container button[type="submit"] {
+    background: linear-gradient(to right, #007acc, #005f99);
+    color: white;
+    padding: 0.75em 1.5em;
+    border: none;
+    border-radius: 50px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.quiz-container button[type="submit"]:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, #005f99, #003f66);
+}
+
+/* Secondary button (Restart) */
+.secondary-btn {
+    background: #cccccc;
+    color: #333;
+    padding: 0.6em 1.2em;
+    border: none;
+    border-radius: 30px;
+    font-size: 0.95em;
+    margin-top: 1.5em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.secondary-btn:hover {
+    background-color: #999;
+}
+
+/* Result styling */
+.result {
+    margin-top: 2em;
+    padding: 1.5em;
+    background-color: #f0f8ff;
+    border-left: 4px solid #007acc;
+    border-radius: 8px;
+    font-size: 1.05em;
+}
+
+/*
+Mobile Responsiveness
+Ensures the quiz container and elements are user-friendly on smaller screens.
+Adjusts padding, margins, and font sizes for better readability and interaction.
+*/
+
+@media (max-width: 480px) {
+    .quiz-container {
+        padding: 1em; /* Reduces padding for smaller screens */
+        margin: 1em; /* Adjusts margins for better fit */
+    }
+
+    .quiz-container button,
+    .secondary-btn {
+        width: 100%; /* Makes buttons full width for easier tapping */
+        font-size: 1em; /* Increases font size for better readability */
+    }
+
+    .question {
+        padding: 0.75em; /* Tighter spacing on smaller screens */
+    }
+
+    .result {
+        font-size: 0.95em; /* Slightly smaller font size for results */
+    }
+}
+

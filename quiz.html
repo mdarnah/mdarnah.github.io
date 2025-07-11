@@ -54,104 +54,105 @@
 
   <!-- Container for quiz form and results -->
   <div class="quiz-container">
-    <h1>Self-Assessment Quiz</h1>
-    <!-- Form element holds all quiz questions and handles user input -->
-    <form id="quizForm">
-      <!-- Multiple-choice question: only one correct answer -->
-      <div class="question">
-        <p>1. What role does a web server play in a client-server model?</p>
-        <label><input type="radio" name="q1" value="a"> It processes business logic</label><br>
-        <label><input type="radio" name="q1" value="b"> It handles HTTP requests and serves content</label><br>
-        <label><input type="radio" name="q1" value="c"> It compiles user applications</label>
-      </div>
+  <h1>Self-Assessment Quiz</h1>
+  <form id="quizForm">
+    <!-- Question 1 -->
+    <div class="question">
+      <p><strong>1. What role does a web server play in a client-server model?</strong></p>
+      <label><input type="radio" name="q1" value="a"> It processes business logic</label><br>
+      <label><input type="radio" name="q1" value="b"> It handles HTTP requests and serves content</label><br>
+      <label><input type="radio" name="q1" value="c"> It compiles user applications</label>
+    </div>
 
-      <!-- Multiple-choice question: only one correct answer -->
-      <div class="question">
-        <p>2. Which of the following is an example of an application server?</p>
-        <label><input type="radio" name="q2" value="a"> Apache HTTP Server</label><br>
-        <label><input type="radio" name="q2" value="b"> Apache Tomcat</label><br>
-        <label><input type="radio" name="q2" value="c"> Nginx</label>
-      </div>
+    <!-- Question 2 -->
+    <div class="question">
+      <p><strong>2. Which of the following is an example of an application server?</strong></p>
+      <label><input type="radio" name="q2" value="a"> Apache HTTP Server</label><br>
+      <label><input type="radio" name="q2" value="b"> Apache Tomcat</label><br>
+      <label><input type="radio" name="q2" value="c"> Nginx</label>
+    </div>
 
-      <!-- Multiple-choice question: only one correct answer -->
-      <div class="question">
-        <p>3. Which platform allows JavaScript to be used for server-side development?</p>
-        <label><input type="radio" name="q3" value="a"> IIS</label><br>
-        <label><input type="radio" name="q3" value="b"> Node.js</label><br>
-        <label><input type="radio" name="q3" value="c"> PHP</label>
-      </div>
+    <!-- Question 3 -->
+    <div class="question">
+      <p><strong>3. Which platform allows JavaScript to be used for server-side development?</strong></p>
+      <label><input type="radio" name="q3" value="a"> IIS</label><br>
+      <label><input type="radio" name="q3" value="b"> Node.js</label><br>
+      <label><input type="radio" name="q3" value="c"> PHP</label>
+    </div>
 
-      <!-- Fill-in-the-blank question -->
-      <div class="question">
-        <p>4. Fill in the blank: ________ computing allows code to be run without managing server infrastructure.</p>
-        <input type="text" name="q4">
-      </div>
+    <!-- Question 4 -->
+    <div class="question">
+      <p><strong>4. Fill in the blank: ________ computing allows code to be run without managing server infrastructure.</strong></p>
+      <input type="text" name="q4" placeholder="Your answer here..." required>
+    </div>
 
-      <!-- Multiple-choice question: more than one correct answer-->
-      <div class="question">
-        <p>5. Select all open-source web servers:</p>
-        <label><input type="checkbox" name="q5" value="apache"> Apache</label><br>
-        <label><input type="checkbox" name="q5" value="nginx"> Nginx</label><br>
-        <label><input type="checkbox" name="q5" value="iis"> Microsoft IIS</label>
-      </div>
+    <!-- Question 5 -->
+    <div class="question">
+      <p><strong>5. Select all open-source web servers:</strong></p>
+      <label><input type="checkbox" name="q5" value="apache"> Apache</label><br>
+      <label><input type="checkbox" name="q5" value="nginx"> Nginx</label><br>
+      <label><input type="checkbox" name="q5" value="iis"> Microsoft IIS</label>
+    </div>
 
-      <!-- Submits the form -->
-      <button type="submit">Submit Quiz</button>
-    </form>
+    <!-- Submit Button -->
+    <button type="submit">Submit Quiz</button>
+  </form>
 
-    <!-- Area to display quiz results after submission -->
-    <div class="result" id="result"></div>
+  <!-- Results Display -->
+  <div class="result" id="result"></div>
 
-    <!-- Button to restart the quiz by clearing inputs and result output -->
-    <button onclick="restartQuiz()">Restart Quiz</button>
-  </div>
+  <!-- Restart Button -->
+  <button onclick="restartQuiz()" class="secondary-btn">Restart Quiz</button>
+</div>
 
   <!-- JavaScript handles logic for quiz submission, scoring, and feedback -->
   <script>
-    // Clears the form and result area when restart is clicked
-    function restartQuiz() {
-      document.getElementById("quizForm").reset();
-      document.getElementById("result").innerHTML = "";
-    }
+    // Function to reset the quiz form and results
+  function restartQuiz() {
+    document.getElementById("quizForm").reset();
+    document.getElementById("result").innerHTML = "";
+  }
 
-    // Handles the quiz submission, calculates score, and provides feedback
-    document.getElementById("quizForm").addEventListener("submit", function(e) {
-      e.preventDefault(); //Prevent page reload on form submission
+  // Event listener to handle form submission without reloading the page
+  document.getElementById("quizForm").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-      let score = 0;
-      let total = 5;
-      let feedback = "<h2>Results</h2>";
+    let score = 0; // Initialize score
+    let total = 5; // Total number of questions
+    let resultArea = document.getElementById("result"); // Area to display results
 
-      // Collects answers from the form
-      const q1 = document.querySelector("input[name='q1']:checked");
-      const q2 = document.querySelector("input[name='q2']:checked");
-      const q3 = document.querySelector("input[name='q3']:checked");
-      const q4 = document.querySelector("input[name='q4']").value.trim().toLowerCase();
-      const q5 = Array.from(document.querySelectorAll("input[name='q5']:checked")).map(cb => cb.value);
+    // Get user's answers for each question
+    // Using querySelector to get checked radio buttons and input values
+    const q1 = document.querySelector("input[name='q1']:checked");
+    const q2 = document.querySelector("input[name='q2']:checked");
+    const q3 = document.querySelector("input[name='q3']:checked");
+    // Trim spaces, convert to lowercase for text input
+    const q4 = document.querySelector("input[name='q4']").value.trim().toLowerCase();
+    // Allow checking for multiple checkboxes
+    const q5 = Array.from(document.querySelectorAll("input[name='q5']:checked")).map(cb => cb.value);
 
-      // Checks answers against correct values and increments score
-      if (q1 && q1.value === "b") score++;
-      if (q2 && q2.value === "b") score++;
-      if (q3 && q3.value === "b") score++;
-      if (q4 === "serverless") score++;
-      if (q5.includes("apache") && q5.includes("nginx") && !q5.includes("iis")) score++;
+    // Evaluate answers
+    if (q1 && q1.value === "b") score++;
+    if (q2 && q2.value === "b") score++;
+    if (q3 && q3.value === "b") score++;
+    if (q4 === "serverless") score++;
+    if (q5.includes("apache") && q5.includes("nginx") && !q5.includes("iis")) score++;
 
-      // Build feedback message with score and correct answers
-      feedback += `<p>Your total score: ${score}/${total}</p>`;
-      feedback += `<p>${score >= 3 ? "✅ Pass" : "❌ Fail"}</p>`;
-
-      feedback += "<ul>";
-      feedback += `<li>Q1: ${q1 ? q1.value : "No answer"} — Correct: b</li>`;
-      feedback += `<li>Q2: ${q2 ? q2.value : "No answer"} — Correct: b</li>`;
-      feedback += `<li>Q3: ${q3 ? q3.value : "No answer"} — Correct: b</li>`;
-      feedback += `<li>Q4: ${q4 || "No answer"} — Correct: serverless</li>`;
-      feedback += `<li>Q5: ${q5.join(", ") || "No answer"} — Correct: Apache, Nginx</li>`;
-      feedback += "</ul>";
-
-      // Display the feedback in the results area
-      document.getElementById("result").innerHTML = feedback;
-    });
-  </script>
+    // Display results
+    resultArea.innerHTML = `
+      <h2>Results</h2>
+      <p><strong>Score:</strong> ${score} / ${total}</p>
+      <p><strong>Status:</strong> ${score >= 3 ? "✅ Pass" : "❌ Fail"}</p>
+      <ul>
+        <li><strong>Q1:</strong> Correct Answer: b</li>
+        <li><strong>Q2:</strong> Correct Answer: b</li>
+        <li><strong>Q3:</strong> Correct Answer: b</li>
+        <li><strong>Q4:</strong> Correct Answer: serverless</li>
+        <li><strong>Q5:</strong> Correct Answers: Apache, Nginx</li>
+      </ul>
+    `;
+  });
+</script>
 </body>
 </html>
 
